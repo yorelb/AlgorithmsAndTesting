@@ -1,0 +1,35 @@
+public class SortingAlgorithms {
+    
+    // Bubble Sort
+    public static void bubbleSort(int[] arr) {
+        do {
+            boolean swapped = false;
+            for (int x = 0; x < arr.length - 1; x++) {
+                if (arr[x] > arr[x+1]) {
+                    int temp = arr[x];
+                    arr[x] = arr[x+1];
+                    arr[x+1] = temp;
+                    swapped = true;
+                }
+            }   
+        }
+        while (swapped);
+    }
+
+    // Selection Sort
+    public static void selectionSort(int[] arr) {
+        
+    }
+
+    // Insertion Sort
+    public static void insertionSort(int[] arr) {
+        
+    }
+
+    // Merge Sort
+    public static void mergeSort(int[] arr) {
+        
+        
+    }
+    
+}
