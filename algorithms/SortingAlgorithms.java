@@ -19,6 +19,15 @@ public class SortingAlgorithms {
 
     // Selection Sort
     public static void selectionSort(int[] arr) {  
+        for (int pos = 0; pos < arr.length - 1; pos++) {
+            int smallest = pos;
+            for (int n = pos + 1; n < arr.length; n++) {
+                if (arr[n] < arr[smallest]) {
+                    smallest = n;
+                }
+            }
+            swapTwoNumbers(arr, pos, smallest);
+        }
     }
 
     // Insertion Sort
