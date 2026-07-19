@@ -62,6 +62,51 @@ public class SortingAlgorithms {
         merge(arr, a, b);
     }
 
+    //Quick Sort
+    //Heap Sort
+    //Radix Sort
+    public static void radixSort(int[] arr) {
+        
+        String[] stringArr = new String[arr.length];
+
+        //Turn everything to a string
+        for (int n = 0; n < arr.length; n++) {
+            stringArr[n] = String.valueOf(arr[n]);
+        }
+
+        
+        //Find the longest string
+        int longest = 0;
+        for (int i = 0; i < stringArr.length; i++) {
+            if (stringArr[i].length() > longest) {
+                longest = stringArr[i].length();
+            }
+        }
+        
+        //Pad the strings with leading zeros
+        for (int x = 0; x < stringArr.length; x++) {
+            while (stringArr[x].length() < longest) {
+                stringArr[x] = "0" + stringArr[x];
+            }
+        }
+        
+        for (int f = longest - 1; f >=0; f--) {
+            for (int w = 0; w < stringArr.length-1; w++) {
+                while (stringArr[w].charAt(f) > stringArr[w+1].charAt(f)) {
+                    String temp = stringArr[w];
+                    stringArr[w] = stringArr[w+1];
+                    stringArr[w+1] = temp;
+                }
+            }
+        }
+
+        System.out.println("Radix Sort:");
+        for (int n = 0; n < stringArr.length; n++) {
+            System.out.print(stringArr[n] + " ");
+        }
+        System.out.println();
+    }
+
 
     private static void merge(int[] result, int[] left, int[] right) {
         int i = 0; 
