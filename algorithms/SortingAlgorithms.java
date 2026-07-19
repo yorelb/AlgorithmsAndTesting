@@ -1,5 +1,7 @@
 package algorithms;
 
+import java.util.Arrays;
+
 public class SortingAlgorithms {
     
     // Bubble Sort
@@ -45,11 +47,44 @@ public class SortingAlgorithms {
         
     }
 
-    // Merge Sort
+    // Merge Sort    
     public static void mergeSort(int[] arr) {  
+        if (arr.length <= 1) {
+            return;
+        }
+        
+        int mid = arr.length / 2;
+        int[] a = Arrays.copyOfRange(arr, 0, mid);
+        int[] b = Arrays.copyOfRange(arr, mid, arr.length);
+        
+        mergeSort(a);
+        mergeSort(b);
+        merge(arr, a, b);
+    }
+
+
+    private static void merge(int[] result, int[] left, int[] right) {
+        int i = 0; 
+        int j = 0; 
+        int k = 0;
+
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                result[k++] = left[i++];
+            } else {
+                result[k++] = right[j++];
+            }
+        }
+
+        while (i < left.length) {
+            result[k++] = left[i++];
+        }
+
+        while (j < right.length) {
+            result[k++] = right[j++];
+        }
     }
     
-
     private static void swapTwoNumbers(int[] arr, int x, int y) {
         int temp = arr[x];
         arr[x] = arr[y];
