@@ -2,7 +2,8 @@ package algorithms;
 
 public class SearchingAlgorithms {
 
-    public static boolean  linearSearch(int[] arr, int target) {
+//Linear search 
+    public static boolean linearSearch(int[] arr, int target) {
         for (int x = 0; x < arr.length; x++) {
             if (arr[x] == target) {
                 return true;
@@ -10,5 +11,8 @@ public class SearchingAlgorithms {
         }
         return false;
     }
+
+//Binary search
+    
 
 }
